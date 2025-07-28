@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="sidebar.js" async></script> 
+</head>
+
+<body>
+
+<side-bar></side-bar>
+<h1>Rock Paper Scissor</h1>
+<label for="user-choice">Enter rock, paper, or scissors:</label>
+<input type="text" id="user-choice" />
+<button id="play-btn">Play</button>
+<div id="result"></div>
+
+<script>
+const getUserChoice = userInput => {
+  userInput = userInput.toLowerCase();
+  if (
+    userInput === 'rock' ||
+    userInput === 'paper' ||
+    userInput === 'scissors' ||
+    userInput === 'bomb'
+  ){
+    return userInput;
+  } else {
+    console.log('Error: Invalid input. Please choose rock, paper, or scissor.')
+  }
+}
+
+const getComputerChoice = () => {
+  const randomNumber = Math.floor(Math.random() * 3);
+  switch (randomNumber) {
+    case 0:
+      return 'rock';
+    case 1:
+      return 'paper';
+    case 2:
+      return 'scissors';
+  }
+};
+
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === 'bomb') {
+    return 'You used the secret cheat code! You win!';
+  }
+  if (userChoice === computerChoice) {
+    return "It's a tie!";
+  }
+  if (userChoice === 'rock') {
+    return computerChoice === 'paper' ? 'Computer wins!' : 'You win!';
+  }
+  if (userChoice === 'paper') {
+    return computerChoice === 'scissors' ? 'Computer wins!' : 'You win!';
+  }
+  if (userChoice === 'scissors') {
+    return computerChoice === 'rock' ? 'Computer wins!' : 'You win!';
+  }
+};
+
+const playGame = () => {
+  const userChoice = getUserChoice('rock'); // change this to test other inputs
+  const computerChoice = getComputerChoice();
+  console.log(`You chose: ${userChoice}`);
+  console.log(`The computer chose: ${computerChoice}`);
+  console.log(determineWinner(userChoice, computerChoice));
+};
+
+document.getElementById('play-btn').addEventListener('click', () => {
+  const userInput = document.getElementById('user-choice').value;
+  const userChoice = getUserChoice(userInput);
+  if (!userChoice) {
+    document.getElementById('result').innerHTML = 
+      'Error: Invalid input. Please choose rock, paper, or scissors.';
+    return;
+  }
+  const computerChoice = getComputerChoice();
+  const result = `
+    You chose: ${userChoice}<br>
+    The computer chose: ${computerChoice}<br>
+    ${determineWinner(userChoice, computerChoice)}
+  `;
+  document.getElementById('result').innerHTML = result;
+});
+
+</script>
+</body>

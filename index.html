@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Test Page</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="sidebar.js" async></script> 
+<!--async tells to browser to load the script in the background--> 
+</head>
+
+<body>
+
+<side-bar></side-bar>
+<h1>Full Stack Web Development</h1>
+<p>Open the console to view the JavaScript code.</p>
+<p>JavaScript is typically written in it's own file.</p>
+<p>DOM (Document Object Model) - represents the structure of your HTML, allows you to edit it but it does not affect the original code, you can just refresh the page to undo everything.</p>
+<ul>
+  <li><strong>Front End:</strong> React.js</li>
+  <li><strong>Back End:</strong> Node.js</li>
+  <li><strong>Database:</strong> MongoDb</li>
+  <li><strong>Storage/File Management:</strong> AWS S3</li>
+  <li><strong>Mobile App:</strong> React Native</li>
+  <li>
+    <div><strong>API's Required:</strong></div>
+    <ul>
+      <li><strong>OCR (Optical Character Recognition):</strong> AWS S3</li>
+      <li><strong>Automatic Emails:</strong> AWS SES (Simple Email Service)</li>
+      <li><strong>Payment Processing:</strong> Stripe</li>
+    </ul>
+  </li>
+</ul>
+
+<script>
+    /* 
+    this is a test of my javascript learning
+    */
+    console.log('JavaScript');
+    console.log(2011);
+    console.log('Hello, World!');
+    console.log(7 * 5);
+    console.log('JavaScript'.length);
+    console.log('humble,hungry,smart'.toUpperCase())
+    
+    // Variables
+    let levelUp = 10;
+    let powerLevel = 9001;
+    let multiplyMe = 32;
+    let quarterMe = 1152;
+    levelUp += 5;
+    console.log(levelUp);
+    powerLevel -= 100;
+    console.log(powerLevel);
+    multiplyMe *= 11;
+    console.log(multiplyMe);
+    quarterMe /= 4;
+    console.log(quarterMe);
+
+    // String Interpolation
+    let myName = 'Garichel Sosa';
+    let myCity = 'Miami';
+    console.log(`My name is ${myName}. My favorite city is ${myCity}.`);
+
+    
+    // Data Types typeoff Operator
+    let newVariable = 'Playing around with typeof.';
+    console.log(typeof newVariable);
+    newVariable = 1;
+    console.log(typeof newVariable);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelvin Temperature Converter</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="sidebar.js" async></script> 
+</head>
+<body>
+  <side-bar></side-bar>
+  <h1>Kelvin Temperature Converter</h1>
+  
+  <label for="kelvinInput">Enter temperature in Kelvin:</label>
+  <input type="number" id="kelvinInput" value="293" min="0">
+  <button id="convertBtn">Convert</button>
+  
+  <p id="resultF"></p>
+  <p id="resultN"></p>
+  
+  <script>
+    document.getElementById('convertBtn').addEventListener('click', function() {
+      // Get the input value and convert to number
+      const kelvin = Number(document.getElementById('kelvinInput').value);
+      
+      // Convert to Celsius
+      let celsius = kelvin - 273;
+      
+      // Convert to Fahrenheit and round down
+      let fahrenheit = celsius * (9/5) + 32;
+      fahrenheit = Math.floor(fahrenheit);
+      
+      // Convert to Newton and round down
+      let newton = celsius * (33/100);
+      newton = Math.floor(newton);
+      
+      // Display results
+      document.getElementById('resultF').textContent =
+        `The temperature is ${fahrenheit} degrees Fahrenheit.`;
+      document.getElementById('resultN').textContent =
+        `The temperature is ${newton} degrees Newton.`;
+    });
+  </script>
+</body>
+</html>
